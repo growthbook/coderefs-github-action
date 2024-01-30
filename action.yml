@@ -2,6 +2,12 @@ name: GrowthBook Code References
 description: Find references to feature flags in your code.
 author: GrowthBook
 inputs: 
+  flagsPath:
+    description: "Path to JSON file containing an array of feature key strings."
+    required: true
+  dir:
+    description: "Path to directory containing codebase to be scanned."
+    required: true
   allowTags: 
     default: "false"
     description: "Enable storing references for tags. Lists the tag as a branch."
@@ -22,6 +28,8 @@ runs:
   using: 'docker'
   image: 'Dockerfile'
   env:
+    GB_FLAGS_PATH: ${{ inputs.flagsPath }}
+    GB_DIR: ${{ inputs.dir }}
     GB_CONTEXT_LINES: ${{ inputs.contextLines }}
     GB_ALLOW_TAGS: ${{ inputs.allowTags }}
     GB_DEBUG: ${{ inputs.debug }}
