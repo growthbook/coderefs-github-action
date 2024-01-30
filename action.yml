@@ -1,6 +1,9 @@
 name: GrowthBook Code References
 description: Find references to feature flags in your code.
 author: GrowthBook
+branding:
+  icon: toggle-right
+  color: purple
 inputs: 
   allowTags: 
     default: "false"
