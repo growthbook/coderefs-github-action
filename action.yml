@@ -1,0 +1,28 @@
+name: GrowthBook Code References
+description: Find references to feature flags in your code.
+author: GrowthBook
+inputs: 
+  allowTags: 
+    default: "false"
+    description: "Enable storing references for tags. Lists the tag as a branch."
+    required: false
+  contextLines: 
+    default: "2"
+    description: "The number of context lines to include with each code reference. If 0, only the lines containing flag references will be sent. If > 0, will include that number of context lines above and below the flag reference. A maximum of 5 context lines may be provided. (default 2)"
+    required: false
+  debug: 
+    default: "false"
+    description: "Enable verbose debug logging."
+    required: false
+  lookback: 
+    default: "10"
+    description: "Set the number of commits to search in history for whether you removed a feature flag from code. You may set to 0 to disable this feature. Setting this option to a high value will increase search time."
+    required: false
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  env:
+    GB_CONTEXT_LINES: ${{ inputs.contextLines }}
+    GB_ALLOW_TAGS: ${{ inputs.allowTags }}
+    GB_DEBUG: ${{ inputs.debug }}
+    GB_LOOKBACK: ${{ inputs.lookback }}
