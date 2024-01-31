@@ -30,6 +30,10 @@ inputs:
     default: "10"
     description: "Set the number of commits to search in history for whether you removed a feature flag from code. You may set to 0 to disable this feature. Setting this option to a high value will increase search time."
     required: false
+  outFile:
+    default: "coderefs.json"
+    description: "Set the filename of the output JSON containing all code references. Defaults to 'coderefs.json'"
+    required: false
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -37,6 +41,7 @@ runs:
     GB_FLAGS_PATH: ${{ inputs.flagsPath }}
     GB_DIR: ${{ inputs.dir }}
     GB_BRANCH: ${{ inputs.branch }}
+    GB_OUT_FILE: ${{ inputs.outFile }}
     GB_CONTEXT_LINES: ${{ inputs.contextLines }}
     GB_ALLOW_TAGS: ${{ inputs.allowTags }}
     GB_DEBUG: ${{ inputs.debug }}
