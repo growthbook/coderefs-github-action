@@ -1,4 +1,4 @@
-FROM growthbook/gb-find-code-refs:2.11.5
+FROM growthbook/gb-find-code-refs:2.11.5-2
 
 LABEL com.github.actions.name="GrowthBook Code References"
 LABEL com.github.actions.description="Find references to feature flags in your code."
