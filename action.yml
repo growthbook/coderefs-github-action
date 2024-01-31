@@ -11,6 +11,9 @@ inputs:
   dir:
     description: "Path to directory containing codebase to be scanned."
     required: true
+  branch:
+    description: "Name of the branch"
+    required: true
   allowTags: 
     default: "false"
     description: "Enable storing references for tags. Lists the tag as a branch."
@@ -33,6 +36,7 @@ runs:
   env:
     GB_FLAGS_PATH: ${{ inputs.flagsPath }}
     GB_DIR: ${{ inputs.dir }}
+    GB_BRANCH: ${{ inputs.branch }}
     GB_CONTEXT_LINES: ${{ inputs.contextLines }}
     GB_ALLOW_TAGS: ${{ inputs.allowTags }}
     GB_DEBUG: ${{ inputs.debug }}
