@@ -34,6 +34,9 @@ inputs:
     default: "coderefs.json"
     description: "Set the filename of the output JSON containing all code references. Defaults to 'coderefs.json'"
     required: false
+  repoName:
+    description: "Define the repo name so that it is included in the output JSON."
+    required: false
 runs:
   using: 'docker'
   image: 'Dockerfile'
@@ -46,3 +49,4 @@ runs:
     GB_ALLOW_TAGS: ${{ inputs.allowTags }}
     GB_DEBUG: ${{ inputs.debug }}
     GB_LOOKBACK: ${{ inputs.lookback }}
+    GB_REPO_NAME: ${{ inputs.repoName }}
