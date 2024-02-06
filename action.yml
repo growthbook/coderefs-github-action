@@ -1,5 +1,5 @@
-name: GrowthBook Code References
-description: Find references to feature flags in your code.
+name: GrowthBook Code References (standalone)
+description: Use the `gb-find-code-refs` utility to find references to feature flags in your code.
 author: GrowthBook
 branding:
   icon: toggle-right
